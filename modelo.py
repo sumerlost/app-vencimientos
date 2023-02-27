@@ -43,13 +43,12 @@ class FuncionesP(Observable):
             return
         BaseDeDatos().Alta(codigo, producto, fecha)
         self.notificar_observador(tree)
-        # actualizar_tree(tree)
 
     def fborrar(self, tree, treeb):
         selec = treeb.focus()
         item = treeb.item(selec)
         BaseDeDatos().Baja(item)
-        # actualizar_tree(tree)
+
         self.notificar_observador(tree)
         treeb.delete(selec)
 
@@ -75,7 +74,6 @@ class FuncionesP(Observable):
         BaseDeDatos().Actualizar(controlador, codigo, producto, fecha, item)
         treeb.delete(selec)
         self.notificar_observador(tree)
-        # actualizar_tree(tree)
 
     @limpiar_campos
     def buscar(self, codigo, producto, fecha, treeb, e_codigo, e_producto, e_fecha):
